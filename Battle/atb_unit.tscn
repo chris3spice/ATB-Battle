@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0yggoyeouq7m"]
+
+[ext_resource type="Script" path="res://Battle/atb_unit.gd" id="1_47034"]
+[ext_resource type="Texture2D" uid="uid://dfxiee0lhwy1r" path="res://Sprites/icon.svg" id="1_n68x0"]
+
+[node name="atb_unit" type="Node2D"]
+script = ExtResource("1_47034")
+metadata/_edit_group_ = true
+
+[node name="waiting_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="activation_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="recovery_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Icon" type="Marker2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Icon"]
+position = Vector2(-22, -50)
+points = PackedVector2Array(22, -22, 22, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Icon"]
+position = Vector2(0, -48)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_n68x0")
+
+[connection signal="timeout" from="waiting_timer" to="." method="_on_waiting_timer_timeout"]
+[connection signal="timeout" from="activation_timer" to="." method="_on_activation_timer_timeout"]
+[connection signal="timeout" from="recovery_timer" to="." method="_on_recovery_timer_timeout"]

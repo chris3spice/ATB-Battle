@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="move" load_steps=2 format=3 uid="uid://bruolftu6aprb"]
+
+[ext_resource type="Script" path="res://Resources/move.gd" id="1_3natq"]
+
+[resource]
+script = ExtResource("1_3natq")
+move_name = "Slap"
+recovery_time = 1.0
+action_time = 2.0

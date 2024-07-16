@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="move" load_steps=2 format=3 uid="uid://dmed6acl6g3u"]
+
+[ext_resource type="Script" path="res://Resources/move.gd" id="1_4vs5b"]
+
+[resource]
+script = ExtResource("1_4vs5b")
+move_name = "Kick"
+recovery_time = 3.0
+action_time = 3.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="unit" load_steps=3 format=3 uid="uid://c25mrm54jila6"]
+
+[ext_resource type="Resource" uid="uid://8u7dh1dgi3ny" path="res://Resources/moves/tackle.tres" id="1_41g3y"]
+[ext_resource type="Script" path="res://Resources/unit.gd" id="1_oad8a"]
+
+[resource]
+script = ExtResource("1_oad8a")
+is_player = false
+name = "Some Guy"
+moveset = [ExtResource("1_41g3y")]
+speed = 4.0

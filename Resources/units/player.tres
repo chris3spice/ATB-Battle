@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="unit" load_steps=5 format=3 uid="uid://b0vyfx3wmoiud"]
+
+[ext_resource type="Script" path="res://Resources/unit.gd" id="1_2qfe1"]
+[ext_resource type="Resource" uid="uid://8u7dh1dgi3ny" path="res://Resources/moves/tackle.tres" id="1_5lygu"]
+[ext_resource type="Resource" uid="uid://bruolftu6aprb" path="res://Resources/moves/slap.tres" id="2_qo385"]
+[ext_resource type="Resource" uid="uid://dmed6acl6g3u" path="res://Resources/moves/kick.tres" id="3_oxeh6"]
+
+[resource]
+script = ExtResource("1_2qfe1")
+is_player = true
+name = "Player"
+moveset = [ExtResource("1_5lygu"), ExtResource("2_qo385"), ExtResource("3_oxeh6")]
+speed = 2.0

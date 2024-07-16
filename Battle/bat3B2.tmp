@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://iyr4fyq4dyow"]
+
+[ext_resource type="Script" path="res://Battle/battle.gd" id="1_q27cl"]
+[ext_resource type="Script" path="res://Battle/action_bar.gd" id="2_8xqsf"]
+[ext_resource type="Texture2D" uid="uid://bgc4ampbjt5jk" path="res://Sprites/Battle/battleback1.png" id="2_g2je0"]
+[ext_resource type="Script" path="res://Battle/atb.gd" id="2_p3wgf"]
+[ext_resource type="Texture2D" uid="uid://dfxiee0lhwy1r" path="res://Sprites/icon.svg" id="5_firve"]
+[ext_resource type="Texture2D" uid="uid://wx3ty8jskyqb" path="res://Sprites/hp bar/scroll-bar-gold-left-cap.png" id="6_vgukp"]
+[ext_resource type="Texture2D" uid="uid://bt8wj6dy52305" path="res://Sprites/hp bar/scroll-bar-fill-background.png" id="7_ox4ap"]
+[ext_resource type="Texture2D" uid="uid://clssk2mcj25d1" path="res://Sprites/hp bar/scroll-bar-fill-gray.png" id="8_upswg"]
+[ext_resource type="Texture2D" uid="uid://dtorrpns2lfd4" path="res://Sprites/hp bar/scroll-bar-gold-right-cap.png" id="9_ltntf"]
+
+[node name="Battle" type="CanvasLayer"]
+script = ExtResource("1_q27cl")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g2je0")
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Actions"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 480.0
+offset_right = 696.0
+offset_bottom = 536.0
+color = Color(0.270222, 0.270222, 0.270222, 1)
+
+[node name="ActionBar" type="HBoxContainer" parent="Actions/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -20.0
+offset_right = 108.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_8xqsf")
+
+[node name="ATB" type="Node2D" parent="."]
+script = ExtResource("2_p3wgf")
+
+[node name="Lines" type="Node" parent="ATB"]
+
+[node name="activate_action" type="Line2D" parent="ATB/Lines"]
+position = Vector2(895, 580)
+points = PackedVector2Array(25, 4, 25, 36)
+
+[node name="action_choice" type="Line2D" parent="ATB/Lines"]
+position = Vector2(696, 584)
+points = PackedVector2Array(8, 0, 8, 32)
+
+[node name="reset" type="Line2D" parent="ATB/Lines"]
+position = Vector2(1076, 580)
+points = PackedVector2Array(20, 4, 20, 36)
+
+[node name="Baseline" type="Line2D" parent="ATB/Lines"]
+position = Vector2(1076, 580)
+points = PackedVector2Array(-1036, 20, 20, 20)
+
+[node name="Markers" type="Node" parent="ATB"]
+
+[node name="Start" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(40, 600)
+
+[node name="Choice" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(704, 600)
+
+[node name="Action" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(920, 600)
+
+[node name="End" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(1096, 600)
+
+[node name="Units" type="Node2D" parent="ATB"]
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(256, 384)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("5_firve")
+
+[node name="Control" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -376.0
+offset_right = -248.0
+offset_bottom = -376.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HPBar" type="HBoxContainer" parent="Player/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[node name="ScrollStart" type="TextureRect" parent="Player/Control/HPBar"]
+layout_mode = 2
+texture = ExtResource("6_vgukp")
+
+[node name="Health" type="TextureProgressBar" parent="Player/Control/HPBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_ox4ap")
+texture_progress = ExtResource("8_upswg")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="ScrollEnd" type="TextureRect" parent="Player/Control/HPBar"]
+layout_mode = 2
+texture = ExtResource("9_ltntf")
+
+[node name="Opponent" type="Node2D" parent="."]

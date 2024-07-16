@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://iyr4fyq4dyow"]
+
+[ext_resource type="Script" path="res://battle.gd" id="1_q27cl"]
+[ext_resource type="Script" path="res://atb.gd" id="2_p3wgf"]
+
+[node name="Battle" type="CanvasLayer"]
+script = ExtResource("1_q27cl")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ATB" type="Node2D" parent="."]
+script = ExtResource("2_p3wgf")
+
+[node name="Lines" type="Node" parent="ATB"]
+
+[node name="activate_action" type="Line2D" parent="ATB/Lines"]
+position = Vector2(895, 580)
+points = PackedVector2Array(25, 4, 25, 36)
+
+[node name="action_choice" type="Line2D" parent="ATB/Lines"]
+position = Vector2(696, 584)
+points = PackedVector2Array(8, 0, 8, 32)
+
+[node name="reset" type="Line2D" parent="ATB/Lines"]
+position = Vector2(1076, 580)
+points = PackedVector2Array(20, 4, 20, 36)
+
+[node name="Baseline" type="Line2D" parent="ATB/Lines"]
+position = Vector2(1076, 580)
+points = PackedVector2Array(-1036, 20, 20, 20)
+
+[node name="Markers" type="Node" parent="ATB"]
+
+[node name="Start" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(40, 600)
+
+[node name="Choice" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(704, 600)
+
+[node name="Action" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(920, 600)
+
+[node name="End" type="Marker2D" parent="ATB/Markers"]
+position = Vector2(1096, 600)
+
+[node name="Units" type="Node2D" parent="ATB"]
